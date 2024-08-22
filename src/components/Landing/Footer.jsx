@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 export const Footer = () => {
   return (
-    <div className='w-screen py-5 border border'>
+    <div className='w-screen py-5 border'>
       <div className='mx-auto w-10/12 flex justify-between items-center'>
         <p>© 2024 Meditiva. All Rights Reserved by Meditiva</p>
         <ul className='flex gap-5'>

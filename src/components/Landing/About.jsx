@@ -27,8 +27,8 @@ export const About = () => {
     })
   }
   return (
-    <div className='w-10/12 mx-auto flex flex-wrap'>
-      <section className='xl:w-4/12 mb-5'>
+    <div className='w-8/12 mx-auto flex flex-wrap'>
+      <section className='xl:w-full mb-5'>
         <div>
           <h2 className='text-meditiva text-xl lg:text-4xl mb-3'>
             Acerca de nosotros
@@ -117,9 +117,9 @@ export const About = () => {
           </ul>
         </div>
       </section>
-      <section className='w-full xl:w-8/12 flex flex-wrap gap-10 justify-center'>
+      {/* <section className='w-full xl:w-8/12 flex flex-wrap gap-10 justify-center'>
         {print()}
-      </section>
+      </section> */}
     </div>
   )
 }
