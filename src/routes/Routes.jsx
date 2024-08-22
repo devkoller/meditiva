@@ -4,7 +4,7 @@ import { Landing, Building } from '@/views'
 export const RoutesApp = () => {
   return (
     <Routes>
-      <Route path='/' element={<Building />} />
+      <Route path='/' element={<Landing />} />
     </Routes>
   )
 }
