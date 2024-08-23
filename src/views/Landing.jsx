@@ -1,7 +1,9 @@
 import {
+  Contact,
   Menu,
   Banner,
   About,
+  Clients,
   Services,
   Numbers,
   Maps,
@@ -11,10 +13,12 @@ import {
 export const Landing = () => {
   return (
     <>
+      <Contact />
       <Menu />
       <Banner />
       <div className='py-10'>
         <About />
+        <Clients />
       </div>
       <div className='bg-slate-100 py-5'>
         <Services />

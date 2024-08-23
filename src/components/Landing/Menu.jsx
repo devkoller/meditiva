@@ -10,19 +10,8 @@ export const Menu = () => {
           <div className='flex gap-2'>
             <div className='flex gap-3 items-center w-fit'>
               <img src={icono} alt='logo' className='w-[3rem]' />
-              <span className='text-xl lg:text-4xl'>Meditiva</span>
+              <span className='text-xl lg:text-4xl'>Meditiva Medical</span>
             </div>
-            <ul className='gap-5 items-center text-lg hidden lg:flex'>
-              <li>
-                <span>Inicio </span>
-              </li>
-              <li>
-                <span>Nosotros</span>
-              </li>
-              <li>
-                <span>Contacto</span>
-              </li>
-            </ul>
           </div>
           <div className='lg:hidden'>
             <LuMenu />
