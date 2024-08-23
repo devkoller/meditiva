@@ -31,11 +31,11 @@ const _SingleBanner = ({ element }) => {
           {/* <span className='font-light'>{element.title1}</span> <br /> */}
           <span className='font-bold'>{element.title2}</span>
         </h1>
-        <div>
+        {/* <div>
           <button className='bg-meditiva px-6 py-5'>
             <span>Descubre más</span>
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   )
