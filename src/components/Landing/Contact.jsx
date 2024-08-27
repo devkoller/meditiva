@@ -10,7 +10,7 @@ export const Contact = () => {
   }
   return (
     <div className='w-10/12 mx-auto py-5'>
-      <ul className='flex items-center gap-5 text-2xl font-bold'>
+      <ul className='flex flex-wrap items-center gap-5 xl:text-2xl font-bold'>
         <li
           className='flex gap-3 items-center hover:text-meditiva duration-500 hover:cursor-pointer'
           onClick={goTo}
