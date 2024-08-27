@@ -1,10 +1,10 @@
 import React from 'react'
-import colima from '@/assets/imgs/colima.png'
-import gto from '@/assets/imgs/gto.png'
-import hcg from '@/assets/imgs/hcg.svg'
-import michoacan from '@/assets/imgs/michoacan.png'
-import sonora from '@/assets/imgs/sonora.png'
-import ssrojo from '@/assets/imgs/ssrojo.png'
+import colima from '@/assets/imgs/clientes/colima.png'
+import gto from '@/assets/imgs/clientes/gto.png'
+// import hcg from '@/assets/imgs/clientes/hcg.svg'
+import michoacan from '@/assets/imgs/clientes/michoacan.png'
+import sonora from '@/assets/imgs/clientes/sonora.png'
+import ssrojo from '@/assets/imgs/clientes/ssrojo.png'
 import Carousel from 'react-multi-carousel'
 
 const responsive = {
@@ -15,7 +15,7 @@ const responsive = {
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3
+    items: 4
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -23,14 +23,13 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
+    items: 2
   }
 }
 
 const data = [
   { img: colima, alt: 'Colima' },
   { img: gto, alt: 'Guanajuato' },
-  { img: hcg, alt: 'Hospital Civil de Guadalajara' },
   { img: michoacan, alt: 'Michoacán' },
   { img: sonora, alt: 'Sonora' },
   { img: ssrojo, alt: 'SS Rojo' }
@@ -48,7 +47,9 @@ export const Clients = () => {
       <div>
         <h2 className='text-3xl text-center mb-5'>
           <span className='font-light'>Nuestros principales</span> <br />
-          <span className='text-meditiva text-8xl font-bold'>Clientes</span>
+          <span className='text-meditiva text-6xl xl:text-8xl font-bold'>
+            Clientes
+          </span>
         </h2>
       </div>
       <Carousel
@@ -76,7 +77,11 @@ const _SingleClient = ({ element }) => {
   return (
     <div className='flex flex-col items-center gap-3 px-5 grayscale duration-500 hover:grayscale-0'>
       <div className='flex gap-3 items-center'>
-        <img src={element.img} alt={element.alt} className='text-black' />
+        <img
+          src={element.img}
+          alt={element.alt}
+          className='text-black w-12/12 aspect-3/2 object-contain mix-blend-color-burn'
+        />
       </div>
     </div>
   )

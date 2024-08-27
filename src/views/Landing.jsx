@@ -6,6 +6,7 @@ import {
   Clients,
   Services,
   Numbers,
+  Sponsors,
   Maps,
   Footer
 } from '@/components'
@@ -26,6 +27,7 @@ export const Landing = () => {
       <div className='py-10'>
         <Numbers />
       </div>
+      <Sponsors />
       <div className='py-10'>
         <Maps />
       </div>

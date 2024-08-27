@@ -13,7 +13,7 @@ export const Menu = () => {
               <span className='text-xl lg:text-4xl'>Meditiva Medical</span>
             </div>
           </div>
-          <div className='lg:hidden'>
+          <div className='hidden'>
             <LuMenu />
           </div>
         </nav>

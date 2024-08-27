@@ -4,6 +4,7 @@ import { CiCalendar } from 'react-icons/ci'
 import { GiMexico } from 'react-icons/gi'
 import { GiCrossedBones } from 'react-icons/gi'
 import { FaUsers } from 'react-icons/fa'
+import productos from '@/assets/imgs/productos.png'
 
 const data = [
   {
@@ -19,7 +20,8 @@ const data = [
   {
     icon: <GiCrossedBones />,
     number: 2000,
-    text: 'Productos en catálogo'
+    text: 'Productos en catálogo',
+    img: productos
   },
   {
     icon: <FaUsers />,
@@ -51,11 +53,14 @@ const _SingleNumber = ({ element }) => {
       <div
         className={`bg-emerald-500 rounded-full p-5 relative mb-5
           after:content-['']
-          after:bg-emerald-500 after:w-5 after:h-5 after:absolute after:-bottom-2 after:right-14
+          after:bg-emerald-500 after:w-5 after:h-5 after:absolute after:-bottom-2 after:[left:calc(50%-.625rem)]
           after:transform after:rotate-45
         `}
       >
-        <span className='text-8xl text-white'>{element.icon}</span>
+        {element.img && <img src={element.img} className='w-28' />}
+        {!element.img && (
+          <span className='text-8xl text-white'>{element.icon}</span>
+        )}
       </div>
       <div className='flex flex-col items-center gap-3 text-white'>
         <h2 className='text-4xl font-bold'>+ {element.number}</h2>

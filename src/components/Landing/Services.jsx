@@ -1,9 +1,14 @@
 import React from 'react'
 import { GiCrossedBones } from 'react-icons/gi'
 
+import columna from '@/assets/imgs/productos/columna.png'
+import cadera from '@/assets/imgs/productos/cadera.png'
+import trauma from '@/assets/imgs/productos/trauma.png'
+import maxilo from '@/assets/imgs/productos/maxilo.png'
+
 const data = [
   {
-    icon: <GiCrossedBones />,
+    icon: columna,
     title: 'Columna',
     text: 'Comprometidos en brindar servicios neuroquirúrgicos  con soluciones inmediatas, proponiendo el uso de alta tecnología médica y biológicos Vanguardistas, mejorando y prolongando la calidad de vida de las personas.',
     list: [
@@ -15,7 +20,7 @@ const data = [
     ]
   },
   {
-    icon: <GiCrossedBones />,
+    icon: cadera,
     title: 'Cadera y rodilla',
     text: 'Dedicados al reemplazo articular, ofreciendo soluciones en artroplastia total de rodilla y cadera.',
     list: [
@@ -27,7 +32,7 @@ const data = [
     ]
   },
   {
-    icon: <GiCrossedBones />,
+    icon: trauma,
     title: 'Trauma y fijadores',
     text: 'Diseñadors para el tratamiento de fracturas, osteotomías o artrodesis del sistema músculo esquelético de forma externa.',
     list: [
@@ -39,7 +44,7 @@ const data = [
     ]
   },
   {
-    icon: <GiCrossedBones />,
+    icon: maxilo,
     title: 'Maxilofacial',
     text: 'Diseñado para la atención en cráneo maxilofacial que fija de forma rígida de las fracturas.',
     list: [
@@ -78,12 +83,13 @@ const _SingleService = ({ element }) => {
         before:[counter-increment:section]
         before:content-['0'counter(section)]
         before:text-slate-50 before:text-8xl before:font-bold 
-        before:absolute before:top-20 before:right-20
+        before:absolute before:top-20 before:right-5 lg:before:right-20
 
     `}
     >
       <div className='min-h-40'>
-        <span className='text-8xl text-meditiva'>{element.icon}</span>
+        <img src={element.icon} alt='' className='w-6/12' />
+        {/* <span className='text-8xl text-meditiva'>{element.icon}</span> */}
       </div>
       <div>
         <h2 className='text-2xl font-bold mb-3'>{element.title}</h2>
