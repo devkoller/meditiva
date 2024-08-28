@@ -27,7 +27,7 @@ export const About = () => {
     })
   }
   return (
-    <div className='w-8/12 mx-auto flex flex-wrap'>
+    <div className='w-8/12 mx-auto flex flex-wrap' data-aos='fade-right'>
       <section className='xl:w-full mb-5'>
         <div>
           <h2 className='text-meditiva text-xl lg:text-4xl mb-3'>

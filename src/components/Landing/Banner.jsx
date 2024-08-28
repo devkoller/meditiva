@@ -1,5 +1,6 @@
 import React from 'react'
 import banner1 from '@/assets/imgs/banner1.jpg'
+import shape from '@/assets/imgs/shapes/7.png'
 
 const data = {
   firstText: 'Material de Curación, Equipo Médico e Instrumental Quirúrgico',
@@ -20,9 +21,14 @@ const _SingleBanner = ({ element }) => {
       before:top-0
       before:w-full before:h-full
       before:bg-black before:opacity-30
+      overflow-hidden
     `}
     >
-      <img src={banner1} alt='' className='absolute z-0 w-full h-full' />
+      <img
+        src={banner1}
+        alt=''
+        className='absolute z-0 w-full h-full animate-banner'
+      />
       <div className='w-screen text-center text-white uppercase whitespace-normal flex flex-col gap-5 relative z-20'>
         <span className='text-md lg:text-6xl break-words'>
           {element.firstText} {element.secondText}
@@ -37,6 +43,11 @@ const _SingleBanner = ({ element }) => {
           </button>
         </div> */}
       </div>
+      <img
+        src={shape}
+        alt=''
+        className='absolute bottom-0 left-0 w-full z-10'
+      />
     </div>
   )
 }

@@ -44,7 +44,7 @@ export const Clients = () => {
   }
 
   return (
-    <div className='w-10/12 mx-auto py-10'>
+    <div className='w-10/12 mx-auto py-10 relative z-10' data-aos='zoom-in'>
       <div>
         <h2 className='text-3xl text-center mb-5'>
           <span className='font-light'>Nuestros principales</span> <br />

@@ -60,7 +60,7 @@ const data = [
 export const Services = () => {
   const print = () => {
     return data.map((item, index) => {
-      return <_SingleService element={item} key={index} />
+      return <_SingleService element={item} key={index} index={index} />
     })
   }
   return (
@@ -75,7 +75,7 @@ export const Services = () => {
   )
 }
 
-const _SingleService = ({ element }) => {
+const _SingleService = ({ element, index }) => {
   return (
     <li
       className={`
@@ -86,6 +86,7 @@ const _SingleService = ({ element }) => {
         before:absolute before:top-20 before:right-5 lg:before:right-20
 
     `}
+      data-aos={`${index % 2 == 0 ? 'fade-right' : 'fade-left'}`}
     >
       <div className='min-h-40'>
         <img src={element.icon} alt='' className='w-6/12' />

@@ -37,7 +37,7 @@ export const Numbers = () => {
     })
   }
   return (
-    <section className='w-10/12 mx-auto'>
+    <section className='w-10/12 mx-auto relative z-10' data-aos='flip-up'>
       <div className='bg-meditiva px-10 py-20 rounded-md '>
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-20'>
           {print()}
