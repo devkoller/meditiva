@@ -2,3 +2,16 @@
   display: flex;
   align-items: center;
 }
+
+.animate-banner {
+  animation: banner 30s ease-in-out infinite alternate-reverse both;
+}
+
+@keyframes banner {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
