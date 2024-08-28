@@ -114,6 +114,57 @@ export const About = () => {
             >
               Maxilofacial
             </li>
+            <li
+              className={`
+                w-5/12 ps-5
+                relative
+                text-xl
+                before:content-["\\2713"] before:text-white before:flex 
+                before:justify-center before:items-center
+                before:absolute
+                before:w-5 before:h-5
+                before:bg-meditiva
+                before:rounded-full
+                before:-left-1
+                before:top-1
+              `}
+            >
+              Laboratorio
+            </li>
+            <li
+              className={`
+                w-5/12 ps-5
+                relative
+                text-xl
+                before:content-["\\2713"] before:text-white before:flex 
+                before:justify-center before:items-center
+                before:absolute
+                before:w-5 before:h-5
+                before:bg-meditiva
+                before:rounded-full
+                before:-left-1
+                before:top-1
+              `}
+            >
+              Material de curación
+            </li>
+            <li
+              className={`
+                w-5/12 ps-5
+                relative
+                text-xl
+                before:content-["\\2713"] before:text-white before:flex 
+                before:justify-center before:items-center
+                before:absolute
+                before:w-5 before:h-5
+                before:bg-meditiva
+                before:rounded-full
+                before:-left-1
+                before:top-1
+              `}
+            >
+              Respiratorio
+            </li>
           </ul>
         </div>
       </section>

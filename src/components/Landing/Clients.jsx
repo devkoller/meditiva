@@ -1,7 +1,7 @@
 import React from 'react'
 import colima from '@/assets/imgs/clientes/colima.png'
 import gto from '@/assets/imgs/clientes/gto.png'
-// import hcg from '@/assets/imgs/clientes/hcg.svg'
+import hcg from '@/assets/imgs/clientes/hcg.png'
 import michoacan from '@/assets/imgs/clientes/michoacan.png'
 import sonora from '@/assets/imgs/clientes/sonora.png'
 import ssrojo from '@/assets/imgs/clientes/ssrojo.png'
@@ -29,6 +29,7 @@ const responsive = {
 
 const data = [
   { img: colima, alt: 'Colima' },
+  { img: hcg, alt: 'HCG' },
   { img: gto, alt: 'Guanajuato' },
   { img: michoacan, alt: 'Michoacán' },
   { img: sonora, alt: 'Sonora' },
@@ -65,7 +66,7 @@ export const Clients = () => {
         autoPlaySpeed={3000}
         swipeable={true}
         draggable={true}
-        removeArrowOnDeviceType={['tablet', 'mobile', 'desktop']}
+        removeArrowOnDeviceType={['tablet', 'mobile']}
       >
         {print()}
       </Carousel>
@@ -80,7 +81,7 @@ const _SingleClient = ({ element }) => {
         <img
           src={element.img}
           alt={element.alt}
-          className='text-black w-12/12 aspect-3/2 object-contain mix-blend-color-burn'
+          className='text-black w-10/12 aspect-3/2 object-contain mix-blend-color-burn'
         />
       </div>
     </div>
