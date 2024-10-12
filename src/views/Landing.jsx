@@ -21,12 +21,12 @@ export const Landing = () => {
       <Contact />
       <Menu />
       <Banner />
-      <div className='pt-10 pb-20 lg:pb-40 relative bg-red'>
+      <div className='pt-10 pb-20 lg:pb-40 relative bg-red overflow-hidden'>
         <About />
         <Clients />
         <ReactSVG
           src={shape1}
-          className='absolute bottom-0 left-0 w-full h-auto z-0'
+          className='absolute bottom-0 left-0 w-full h-auto z-0 overflow-hidden'
           beforeInjection={svg => {
             svg.classList.add('bg-transparent')
             svg.classList.add('text-slate-100')
@@ -34,14 +34,14 @@ export const Landing = () => {
           }}
         />
       </div>
-      <div className='bg-slate-100 py-5'>
+      <div className='bg-slate-100 py-5 overflow-hidden'>
         <Services />
       </div>
       <div className='py-10 relative'>
         <Numbers />
         <ReactSVG
           src={shape1}
-          className='absolute top-0 left-0 w-full h-auto z-0 rotate-180'
+          className='absolute top-0 left-0 w-full h-auto z-0 rotate-180 overflow-hidden'
           beforeInjection={svg => {
             svg.classList.add('bg-transparent')
             svg.classList.add('text-slate-100')

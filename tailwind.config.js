@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        meditiva: '#10877c'
+        meditiva: '#10877c',
+        meditiva2: '#1a3c45d9'
       },
       aspectRatio: {
         '3/2': '3 / 2'

@@ -4,7 +4,7 @@
 }
 
 .animate-banner {
-  animation: banner 30s ease-in-out infinite alternate-reverse both;
+  animation: banner 50s ease-in-out infinite alternate-reverse both;
 }
 
 @keyframes banner {

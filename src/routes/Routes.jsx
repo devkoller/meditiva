@@ -1,10 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
-import { Landing, Building } from '@/views'
+
+import { completeRoutes } from '@/utils/routes'
 
 export const RoutesApp = () => {
-  return (
-    <Routes>
-      <Route path='/' element={<Landing />} />
-    </Routes>
-  )
+  const printRoutes = () => {
+    return completeRoutes.map((route, index) => {
+      return (
+        <Route key={index} path={route.route} element={<route.component />} />
+      )
+    })
+  }
+  return <Routes>{printRoutes()}</Routes>
 }

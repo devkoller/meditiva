@@ -38,7 +38,7 @@ export const Numbers = () => {
   }
   return (
     <section className='w-10/12 mx-auto relative z-10' data-aos='flip-up'>
-      <div className='bg-meditiva px-10 py-20 rounded-md '>
+      <div className='bg-meditiva2 px-10 py-20 rounded-md '>
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-20'>
           {print()}
         </div>
@@ -51,9 +51,9 @@ const _SingleNumber = ({ element }) => {
   return (
     <div className='flex flex-col items-center gap-3'>
       <div
-        className={`bg-emerald-500 rounded-full p-5 relative mb-5
+        className={`bg-meditiva rounded-full p-5 relative mb-5
           after:content-['']
-          after:bg-emerald-500 after:w-5 after:h-5 after:absolute after:-bottom-2 after:[left:calc(50%-.625rem)]
+          after:bg-meditiva after:w-5 after:h-5 after:absolute after:-bottom-2 after:[left:calc(50%-.625rem)]
           after:transform after:rotate-45
         `}
       >
