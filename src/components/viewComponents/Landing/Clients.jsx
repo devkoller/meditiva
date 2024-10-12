@@ -5,6 +5,9 @@ import hcg from '@/assets/imgs/clientes/hcg.png'
 import michoacan from '@/assets/imgs/clientes/michoacan.png'
 import sonora from '@/assets/imgs/clientes/sonora.png'
 import ssrojo from '@/assets/imgs/clientes/ssrojo.png'
+import imss from '@/assets/imgs/clientes/imss.png'
+import bienestart from '@/assets/imgs/clientes/bienestart.svg'
+
 import Carousel from 'react-multi-carousel'
 
 const responsive = {
@@ -33,7 +36,9 @@ const data = [
   { img: gto, alt: 'Guanajuato' },
   { img: michoacan, alt: 'Michoacán' },
   { img: sonora, alt: 'Sonora' },
-  { img: ssrojo, alt: 'SS Rojo' }
+  { img: ssrojo, alt: 'SS Rojo' },
+  { img: imss, alt: 'IMSS' },
+  { img: bienestart, alt: 'nBie' }
 ]
 
 export const Clients = () => {
@@ -81,7 +86,7 @@ const _SingleClient = ({ element }) => {
         <img
           src={element.img}
           alt={element.alt}
-          className='text-black w-10/12 aspect-3/2 object-contain mix-blend-color-burn'
+          className='text-black w-12/12 aspect-3/2 object-contain mix-blend-color-burn'
         />
       </div>
     </div>

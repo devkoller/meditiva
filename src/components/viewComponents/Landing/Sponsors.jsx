@@ -17,6 +17,12 @@ import topspine from '@/assets/imgs/socios/topspine.jpg'
 import trauma from '@/assets/imgs/socios/trauma.png'
 import ulrich from '@/assets/imgs/socios/ulrich.png'
 import varlix from '@/assets/imgs/socios/varlix.jpg'
+import boston from '@/assets/imgs/socios/boston.png'
+import dewi from '@/assets/imgs/socios/dewi.webp'
+import purell from '@/assets/imgs/socios/purell.png'
+import wested from '@/assets/imgs/socios/wested.png'
+import wing from '@/assets/imgs/socios/wing.png'
+import resp from '@/assets/imgs/socios/Respifix.png'
 
 const responsive = {
   superLargeDesktop: {
@@ -55,7 +61,13 @@ const data = [
   { img: topspine },
   { img: trauma },
   { img: ulrich },
-  { img: varlix }
+  { img: varlix },
+  { img: boston },
+  { img: dewi },
+  { img: purell },
+  { img: wested },
+  { img: wing },
+  { img: resp }
 ]
 
 export const Sponsors = () => {

@@ -17,7 +17,7 @@ export default defineConfig({
         entryFileNames: 'assets/index.js',
         assetFileNames: assetInfo => {
           if (assetInfo.name == 'output.css') return 'assets/index.css'
-          return assetInfo.name
+          return `assets/${assetInfo.name}`
         }
       }
     }
