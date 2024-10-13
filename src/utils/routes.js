@@ -31,7 +31,7 @@ export const completeRoutes = [
     component: Landing,
     menu: false,
     icon: false,
-    auth: false,
+    auth: 'none',
     type: 'none'
   },
   {
@@ -40,7 +40,7 @@ export const completeRoutes = [
     component: Login,
     menu: false,
     icon: false,
-    auth: false,
+    auth: 'Not Authenticated',
     type: 'none'
   },
   {
@@ -49,7 +49,7 @@ export const completeRoutes = [
     component: Dashboard,
     menu: true,
     icon: IoPieChartSharp,
-    auth: false,
+    auth: 'Authenticated',
     type: 'Productivo'
   },
   {
@@ -58,7 +58,7 @@ export const completeRoutes = [
     component: Articulos,
     menu: true,
     icon: IoMedical,
-    auth: false,
+    auth: 'Authenticated',
     type: 'Catálogos'
   },
   {
@@ -67,7 +67,7 @@ export const completeRoutes = [
     component: CrearArticulo,
     menu: false,
     icon: IoMedical,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -76,7 +76,7 @@ export const completeRoutes = [
     component: CrearArticulo,
     menu: false,
     icon: IoMedical,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -85,7 +85,7 @@ export const completeRoutes = [
     component: Almacenes,
     menu: true,
     icon: FaWarehouse,
-    auth: false,
+    auth: 'Authenticated',
     type: 'Catálogos'
   },
   {
@@ -94,7 +94,7 @@ export const completeRoutes = [
     component: CrearAlmacen,
     menu: true,
     icon: FaWarehouse,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -103,7 +103,7 @@ export const completeRoutes = [
     component: CrearAlmacen,
     menu: true,
     icon: FaWarehouse,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -112,7 +112,7 @@ export const completeRoutes = [
     component: Proveedores,
     menu: true,
     icon: GiPelvisBone,
-    auth: false,
+    auth: 'Authenticated',
     type: 'Catálogos'
   },
   {
@@ -121,7 +121,7 @@ export const completeRoutes = [
     component: CrearProveedor,
     menu: true,
     icon: GiPelvisBone,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -130,7 +130,7 @@ export const completeRoutes = [
     component: CrearProveedor,
     menu: true,
     icon: GiPelvisBone,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -139,7 +139,7 @@ export const completeRoutes = [
     component: Clientes,
     menu: true,
     icon: BsHospitalFill,
-    auth: false,
+    auth: 'Authenticated',
     type: 'Catálogos'
   },
   {
@@ -148,7 +148,7 @@ export const completeRoutes = [
     component: CrearCliente,
     menu: true,
     icon: BsHospitalFill,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -157,7 +157,7 @@ export const completeRoutes = [
     component: CrearCliente,
     menu: true,
     icon: BsHospitalFill,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -166,7 +166,7 @@ export const completeRoutes = [
     component: Empresas,
     menu: true,
     icon: MdFactory,
-    auth: false,
+    auth: 'Authenticated',
     type: 'Catálogos'
   },
   {
@@ -175,7 +175,7 @@ export const completeRoutes = [
     component: CrearEmpresa,
     menu: true,
     icon: MdFactory,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -184,7 +184,7 @@ export const completeRoutes = [
     component: CrearEmpresa,
     menu: true,
     icon: MdFactory,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -193,7 +193,7 @@ export const completeRoutes = [
     component: Inventario,
     menu: true,
     icon: MdInventory,
-    auth: false,
+    auth: 'Authenticated',
     type: 'Productivo'
   },
   {
@@ -202,7 +202,7 @@ export const completeRoutes = [
     component: Perfil,
     menu: false,
     icon: false,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -211,7 +211,7 @@ export const completeRoutes = [
     component: Usuarios,
     menu: true,
     icon: FaUsers,
-    auth: false,
+    auth: 'Authenticated',
     type: 'Administración'
   },
   {
@@ -220,7 +220,7 @@ export const completeRoutes = [
     component: CrearUsuario,
     menu: true,
     icon: FaUsers,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   },
   {
@@ -229,7 +229,7 @@ export const completeRoutes = [
     component: CrearUsuario,
     menu: true,
     icon: FaUsers,
-    auth: false,
+    auth: 'Authenticated',
     type: 'none'
   }
 ]

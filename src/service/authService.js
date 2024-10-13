@@ -5,5 +5,5 @@ export const loginService = async user => {
 }
 
 export const updatePermissions = async token => {
-  return await fetchApi.get({ url: '/user/update-permission-token', token })
+  return await fetchApi.get({ url: '/user/check-session', token })
 }

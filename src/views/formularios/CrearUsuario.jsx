@@ -48,12 +48,8 @@ export const CrearUsuario = () => {
       >
         <FormInput label='Nombre' name='nombre' required />
         <div className='flex gap-3'>
-          <FormInput label='Primer apellido' name='ape1' />
+          <FormInput label='Primer apellido' name='ape1' required />
           <FormInput label='Segundo apellido' name='ape2' />
-        </div>
-        <div className='flex gap-3'>
-          <FormInput label='Telefono' name='telefono' required />
-          <FormInput label='Correo' name='correo' required />
         </div>
         <div>
           <FormInput label='Usuario' name='username' required />

@@ -16,6 +16,7 @@ const TextualInput = ({
   viewPassword,
   toggleViewPassword,
   values,
+  required,
   onChange = () => {},
   ...otherProps
 }) => {
@@ -40,7 +41,7 @@ const TextualInput = ({
             name={name}
             id={name}
             value={values}
-            {...register(name)}
+            {...register(name, { required: required })}
             onChange={onChange ? onChange : () => {}}
             className={`border w-full border-neutral-950/25 focus-visible:border-sky-500 focus-visible:outline-none px-3 py-1 ${
               type === 'password' ? 'rounded-sm' : 'rounded-md'
@@ -130,14 +131,11 @@ const CheckInput = ({
     <div className='flex gap-2 mt-2 items-center'>
       <input
         type={type}
-        label={label}
         name={name}
         id={name}
-        value={values}
-        checked={values}
         onChange={e => {}}
         className={className}
-        {...register(name)}
+        // {...register(name)}
         {...otherProps}
       />
       <label htmlFor={name} className='ml-2'>
@@ -291,19 +289,20 @@ export const FormInput = ({
       ) : (
         <>
           {type === 'checkbox' ? (
-            <CheckInput
-              type={type}
-              label={label}
-              name={name}
-              refCallback={refCallback}
-              errors={errors}
-              register={register}
-              comp={comp}
-              className={className}
-              rows={rows}
-              values={values}
-              {...otherProps}
-            />
+            <div>
+              <CheckInput
+                type={type}
+                label={label}
+                name={name}
+                refCallback={refCallback}
+                errors={errors}
+                register={register}
+                comp={comp}
+                className={className}
+                rows={rows}
+                {...otherProps}
+              />
+            </div>
           ) : type === 'select' ? (
             <div className='flex flex-col mb-3 w-full'>
               {label ? (
@@ -401,6 +400,7 @@ export const FormInput = ({
                   toggleViewPassword={toggleViewPassword}
                   rows={rows}
                   values={values}
+                  required={required}
                   {...otherProps}
                 />
               )}

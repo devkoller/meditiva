@@ -2,7 +2,7 @@ import { Forms, FormInput } from '../components'
 import { useForm } from 'react-hook-form'
 import { useAuthStore } from '../hooks/useAuthStore'
 import { AuthLayer, Menu, Button } from '@/components'
-import { Link } from 'react-router-dom'
+import { notifications } from '@mantine/notifications'
 
 export const Login = () => {
   const { startLogin } = useAuthStore()
@@ -18,7 +18,13 @@ export const Login = () => {
     startLogin(data)
   }
 
-  const onError = errors => console.log(errors)
+  const onError = errors => {
+    notifications.show({
+      title: 'Error',
+      message: 'Llene todos los campos',
+      color: 'red'
+    })
+  }
   return (
     <>
       <Menu />
@@ -52,10 +58,7 @@ export const Login = () => {
             />
 
             <div className='flex justify-end mt-5'>
-              <Link to='/main' className='text-blue-500'>
-                Iniciar sesión
-              </Link>
-              {/* <Button type='submit'>Iniciar sesión</Button> */}
+              <Button type='submit'>Iniciar sesión</Button>
             </div>
           </Forms>
         </div>

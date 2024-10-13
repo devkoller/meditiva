@@ -29,6 +29,7 @@ import { Modal } from './Modals'
 import { Button } from './ui/Button'
 import { OutlineButton } from './ui/OutlineButton'
 import { Toolbar } from './ui/Toolbar'
+import { Title } from './ui/Title'
 
 export {
   About,
@@ -52,5 +53,6 @@ export {
   OutlineButton,
   AuthLayer,
   AuthWrapper,
-  Toolbar
+  Toolbar,
+  Title
 }

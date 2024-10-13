@@ -4,9 +4,9 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState: {
     isAuthenticated: 'Checking', // checking, true, false
-    userCode: null,
+    id: null,
+    username: null,
     name: null,
-    email: null,
     keepSessionOpen: null,
     permisos: null,
     token: null,
@@ -17,8 +17,8 @@ export const authSlice = createSlice({
   reducers: {
     onLogin: (state, { payload }) => {
       state.isAuthenticated = 'Authenticated'
-      state.userCode = payload.userCode
-      state.email = payload.email
+      state.id = payload.id
+      state.username = payload.username
       state.name = payload.name
       state.keepSessionOpen = payload.keepSessionOpen
       state.permisos = payload.permisos
@@ -30,8 +30,9 @@ export const authSlice = createSlice({
     /* Setting the state to the initial state. */
     onLogout: (state, { payload }) => {
       state.isAuthenticated = 'Not Authenticated'
-      state.userCode = null
-      state.email = null
+      state.id = null
+      state.username = null
+      state.name = null
       state.keepSessionOpen = null
       state.permisos = null
       state.token = null

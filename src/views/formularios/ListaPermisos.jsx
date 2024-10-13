@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useFetch } from '@/hooks'
 import { useForm } from 'react-hook-form'
+import { Forms, FormInput, Button, Title } from '@/components'
 
 export const ListaPermisos = ({ idUser }) => {
   const [permisos, setPermisos] = useState([])
@@ -22,27 +23,55 @@ export const ListaPermisos = ({ idUser }) => {
     })
   }
 
-  const print = () => {
+  const { response: permisosData } = useFetch({
+    url: '/data/list-grants'
+  })
+
+  useEffect(() => {
+    if (permisosData) {
+      setPermisos(permisosData.data)
+    }
+  }, [permisosData])
+
+  const printHeads = () => {
     return permisos.map((permiso, index) => {
       return (
         <div key={index}>
-          <h3>{permiso.name}</h3>
-          {permiso.permisos.map((permiso, index2) => {
-            return (
-              <div key={`${index}-${index2}`}>
-                <input
-                  type='checkbox'
-                  name={permiso.name}
-                  value={permiso.id}
-                  ref={register}
-                />
-                {permiso.name}
-              </div>
-            )
-          })}
+          <Title>{permiso.nombre}</Title>
+          {printGrants(permiso.permisos, permiso.grant)}
         </div>
       )
     })
   }
-  return <div>ListaPermisos</div>
+
+  const printGrants = (list, grant) => {
+    return list.map((permiso, index) => {
+      return (
+        <div key={index}>
+          <FormInput
+            type='checkbox'
+            name={`#${grant}.${permiso.nombre}`}
+            label={permiso.nombre}
+          />
+        </div>
+      )
+    })
+  }
+  return (
+    <div>
+      <Title type='h1'>Permisos del usuario</Title>
+      <Forms
+        handleSubmit={handleSubmit}
+        onSubmit={onSubmit}
+        register={register}
+        control={control}
+      >
+        {printHeads()}
+
+        <div>
+          <Button type='submit'> Enviar </Button>
+        </div>
+      </Forms>
+    </div>
+  )
 }

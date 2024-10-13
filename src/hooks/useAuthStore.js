@@ -8,6 +8,7 @@ import {
   onLogin,
   onLogout
 } from '../store/slice/authSlice'
+import { notifications } from '@mantine/notifications'
 
 import { useEffect } from 'react'
 
@@ -27,8 +28,8 @@ export const useAuthStore = () => {
   })
 
   const {
-    userCode,
-    email,
+    id,
+    username,
     name,
     permisos,
     keepSessionOpen,
@@ -40,30 +41,16 @@ export const useAuthStore = () => {
   const startLogin = async body => {
     dispatch(onCheckingCredentials())
 
-    // const body = {
-    //   email,
-    //   password,
-    //   keepSessionOpen
-    // }
-
     try {
       const result = await loginService(body)
 
       if (!result.ok) {
         dispatch(onLogout({}))
-        // Store.addNotification({
-        //   title: 'Error!',
-        //   message: 'Usuario o contraseña incorrectos',
-        //   type: 'danger',
-        //   insert: 'top',
-        //   container: 'top-right',
-        //   animationIn: ['animate__animated', 'animate__fadeIn'],
-        //   animationOut: ['animate__animated', 'animate__fadeOut'],
-        //   dismiss: {
-        //     duration: 3000,
-        //     onScreen: true
-        //   }
-        // })
+        notifications.show({
+          title: 'Error!',
+          message: 'Hubo un error al intentarse autenticar',
+          color: 'red'
+        })
         return
       }
 
@@ -71,8 +58,8 @@ export const useAuthStore = () => {
       data = data.data
 
       const session = {
-        userCode: data.userCode,
-        email: data.email,
+        id: data.id,
+        username: data.username,
         name: data.name,
         keepSessionOpen: data.keepSessionOpen,
         token: data.token,
@@ -85,34 +72,17 @@ export const useAuthStore = () => {
         ? setLocalStorage(session)
         : setSessionStorage(session)
 
-      // Store.addNotification({
-      //   title: 'Bienvenido',
-      //   type: 'success',
-      //   insert: 'top',
-      //   container: 'top-right',
-      //   animationIn: ['animate__animated', 'animate__fadeIn'],
-      //   animationOut: ['animate__animated', 'animate__fadeOut'],
-      //   dismiss: {
-      //     duration: 3000,
-      //     onScreen: true
-      //   }
-      // })
+      notifications.show({
+        title: 'Correcto!',
+        message: 'Bienvenid@ a la plataforma'
+      })
     } catch (error) {
       dispatch(onLogout('Hubo un error al intentarse autenticar'))
-      // Store.addNotification({
-      //   title: 'Error!',
-      //   message:
-      //     'Hubo un durante el proceso de autenticación, intente de nuevo más tarde',
-      //   type: 'danger',
-      //   insert: 'top',
-      //   container: 'top-right',
-      //   animationIn: ['animate__animated', 'animate__fadeIn'],
-      //   animationOut: ['animate__animated', 'animate__fadeOut'],
-      //   dismiss: {
-      //     duration: 3000,
-      //     onScreen: true
-      //   }
-      // })
+      notifications.show({
+        title: 'Error!',
+        message: 'Hubo un error al intentarse autenticar, intente de nuevo',
+        color: 'red'
+      })
       setTimeout(() => {
         dispatch(clearErrorMessage())
       }, 10)
@@ -130,16 +100,14 @@ export const useAuthStore = () => {
   }
 
   useEffect(() => {
-    const func = async datas => {
-      // console.log(datas)
-
-      // const result = await updatePermissions(datas.token)
-      // const data = await result.json()
+    const func = async session => {
+      const result = await updatePermissions(session.token)
+      const newGrants = await result.json()
 
       dispatch(
         onLogin({
-          ...datas
-          // permisos: data.data.permisos
+          ...session,
+          permisos: newGrants.data.permisos
         })
       )
     }
@@ -162,8 +130,8 @@ export const useAuthStore = () => {
   }, [])
 
   return {
-    userCode,
-    email,
+    id,
+    username,
     name,
     token,
     keepSessionOpen,
