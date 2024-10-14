@@ -104,6 +104,11 @@ export const useAuthStore = () => {
       const result = await updatePermissions(session.token)
       const newGrants = await result.json()
 
+      if (newGrants.status != 200) {
+        startLogout()
+        return
+      }
+
       dispatch(
         onLogin({
           ...session,

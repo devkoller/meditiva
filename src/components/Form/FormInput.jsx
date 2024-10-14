@@ -125,22 +125,46 @@ const CheckInput = ({
   className,
   refCallback,
   values,
+  table,
+  description,
+  checked,
+  onChange = () => {},
   ...otherProps
 }) => {
+  let value
   return (
-    <div className='flex gap-2 mt-2 items-center'>
-      <input
-        type={type}
-        name={name}
-        id={name}
-        onChange={e => {}}
-        className={className}
-        // {...register(name)}
-        {...otherProps}
-      />
-      <label htmlFor={name} className='ml-2'>
-        {label}
-      </label>
+    <div
+      className={`flex  mt-2 items-center ${
+        table ? 'border border-gray-500' : 'gap-2'
+      }`}
+    >
+      <div className={`${table ? 'w-1/12 flex justify-center' : ''}`}>
+        <input
+          id={name}
+          type='checkbox'
+          name={name}
+          className={className}
+          checked={checked}
+          value={value}
+          {...otherProps}
+          onChange={e => {
+            values = e.target.checked
+            onChange(values)
+          }}
+        />
+      </div>
+      <div className={`${table ? 'border-x w-5/12 border-gray-500' : ''}`}>
+        <label htmlFor={name} className='ml-2'>
+          {label}
+        </label>
+      </div>
+      {table && description && (
+        <div className='border w-6/12 border-gray-500'>
+          <label htmlFor={name} className='ml-2'>
+            {description}
+          </label>
+        </div>
+      )}
     </div>
   )
 }
@@ -266,6 +290,8 @@ export const FormInput = ({
   required,
   options,
   setFiles,
+  table,
+  checked,
   ...otherProps
 }) => {
   const comp =
@@ -300,6 +326,8 @@ export const FormInput = ({
                 comp={comp}
                 className={className}
                 rows={rows}
+                table={table}
+                checked={checked}
                 {...otherProps}
               />
             </div>
