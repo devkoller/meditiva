@@ -5,9 +5,10 @@ import AOS from 'aos'
 
 import '@mantine/core/styles.layer.css'
 import '@mantine/notifications/styles.css'
+import '@mantine/dates/styles.css'
 import 'mantine-datatable/styles.layer.css'
 import 'react-multi-carousel/lib/styles.css'
-import './style/custom.css'
+import './assets/css/custom.css'
 import './assets/css/index.css'
 import 'aos/dist/aos.css'
 

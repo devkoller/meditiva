@@ -1,20 +1,21 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { AuthWrapper, Toolbar, MantineDataTable, Button } from '@/components'
 import { Link } from 'react-router-dom'
 import { MdEdit } from 'react-icons/md'
-
-//Dataset for the table
-const data = [
-  { id: 1, name: 'Proveedor 1', descrip: 'Descripcion 1' },
-  { id: 2, name: 'Proveedor 2', descrip: 'Descripcion 2' },
-  { id: 3, name: 'Proveedor 3', descrip: 'Descripcion 3' }
-]
+import { useFetch } from '@/hooks'
 
 export const Proveedores = () => {
+  const [proveedores, setProveedores] = useState([])
+
+  const { response: proveedoresData } = useFetch({
+    url: '/api/catalogue/provider'
+  })
+
   const columns = [
     { accessor: 'id', title: 'ID', hidden: true },
-    { accessor: 'name', title: 'Articulo', filter: 'text' },
-    { accessor: 'descrip', title: 'Description', filter: 'text' },
+    { accessor: 'nombre', title: 'Proveedor', filter: 'text' },
+    { accessor: 'rfc', title: 'RFC', filter: 'text' },
+    { accessor: 'telefono', title: 'Teléfono', filter: 'text' },
     {
       accessor: 'actions',
       title: 'Acciones',
@@ -31,6 +32,12 @@ export const Proveedores = () => {
     }
   ]
 
+  useEffect(() => {
+    if (proveedoresData) {
+      setProveedores(proveedoresData.data)
+    }
+  }, [proveedoresData])
+
   return (
     <AuthWrapper>
       <Toolbar>
@@ -40,7 +47,11 @@ export const Proveedores = () => {
           </Button>
         </div>
       </Toolbar>
-      <MantineDataTable columns={columns} data={data} KeyTable='proveedores' />
+      <MantineDataTable
+        columns={columns}
+        data={proveedores}
+        KeyTable='proveedores'
+      />
     </AuthWrapper>
   )
 }

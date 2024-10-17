@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 import { notifications } from '@mantine/notifications'
 import { useParams } from 'react-router-dom'
 import { IoMdArrowRoundBack } from 'react-icons/io'
+import { useFetch, usePost } from '@/hooks'
+import { useNavigate } from 'react-router-dom'
 
 import { AuthWrapper, Forms, FormInput, Button, Toolbar } from '@/components'
 
@@ -12,29 +14,59 @@ const options = [
 ]
 
 export const CrearArticulo = () => {
-  const [articuloData, setArticuloData] = useState(null)
   const { id } = useParams()
+  const { execute, loading } = usePost()
+  const navigate = useNavigate()
   const {
     handleSubmit,
     register,
     control,
+    reset,
     formState: { errors }
   } = useForm({})
 
+  const { response: articleData } = useFetch({
+    url: '/api/catalogue/article/' + id
+  })
+
   const onSubmit = data => {
-    notifications.show({
-      title: 'Correcto',
-      message: 'Se ha creado correctamente'
+    const url = id ? `/api/catalogue/article/${id}` : '/api/catalogue/article'
+    const method = id ? 'put' : 'post'
+
+    execute({
+      url,
+      method,
+      body: {
+        ...data,
+        id: id
+      }
+    }).then(res => {
+      if (res.status === 200) {
+        notifications.show({
+          title: 'Correcto',
+          message: `Se ha ${id ? 'actualizado' : 'creado'} correctamente`
+        })
+
+        navigate('/articulos')
+      }
     })
   }
 
   const onError = errors => {
     notifications.show({
-      title: 'Correcto',
-      message: 'Se ha creado correctamente',
+      title: 'Error!',
+      message: 'Complete los campos obligatorios',
       color: 'red'
     })
   }
+
+  useEffect(() => {
+    if (articleData && id) {
+      reset({
+        ...articleData.data
+      })
+    }
+  }, [articleData])
 
   return (
     <AuthWrapper>
@@ -48,11 +80,12 @@ export const CrearArticulo = () => {
       <Forms
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
+        onError={onError}
         register={register}
         control={control}
       >
         <FormInput label='Nombre del articulo' name='nombre' required />
-        <FormInput label='Descripción' type='textarea' name='descripcion' />
+        <FormInput label='Descripción' type='textarea' name='descrip' />
         <FormInput
           label='Tipo'
           type='select'
@@ -61,10 +94,12 @@ export const CrearArticulo = () => {
           required
         />
         <FormInput label='Marca' name='marca' />
-        <FormInput label='Modelo' name='modelo' />
+        {/* <FormInput label='Modelo' name='modelo' /> */}
 
         <div className='flex justify-end mt-3'>
-          <Button type='submit'>{id ? 'Modificar' : 'Crear'} Artículo</Button>
+          <Button type='submit' disabled={loading}>
+            {id ? 'Modificar' : 'Crear'} Artículo
+          </Button>
         </div>
       </Forms>
     </AuthWrapper>

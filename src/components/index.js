@@ -23,13 +23,19 @@ import { FormInput } from './Form/FormInput'
 
 import { MantineDataTable } from './Table/MantineDataTable'
 import { BigCalendar } from './Calendar/BigCalendar'
-import { Modal } from './Modals'
+import { Modal } from './ui/Modals'
 
 // Importing all the components from ui
 import { Button } from './ui/Button'
 import { OutlineButton } from './ui/OutlineButton'
 import { Toolbar } from './ui/Toolbar'
 import { Title } from './ui/Title'
+import { CardButton } from './ui/CardButton'
+import { Tabs } from './ui/Tabs'
+import { RightPanel } from './ui/RightPanel'
+import { BarCode } from './ui/BarCode'
+import { Select } from './ui/Select'
+import { Input } from './ui/Input'
 
 export {
   About,
@@ -54,5 +60,11 @@ export {
   AuthLayer,
   AuthWrapper,
   Toolbar,
-  Title
+  Title,
+  CardButton,
+  Tabs,
+  RightPanel,
+  BarCode,
+  Select,
+  Input
 }

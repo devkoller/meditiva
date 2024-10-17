@@ -23,7 +23,8 @@ export const Header = () => {
   }
 
   return (
-    <div className='w-full p-3 bg-meditiva flex justify-between items-center'>
+    <div className='w-full p-3 bg-meditiva flex justify-between items-center  sticky top-0 z-40'>
+      <div className='lg:hidden'>Menu</div>
       <div className='flex gap-3 items-center text-white'>
         <div className='flex gap-3'>
           <Link className='flex gap-3 items-center w-fit' to='/'>
@@ -33,9 +34,9 @@ export const Header = () => {
             </span>
           </Link>
         </div>
-        <span>|</span>
-        <div className='text-white'>
-          <span className='text-sm'>{printBreadCrumbs()}</span>
+        <span className='hidden lg:block'>|</span>
+        <div className='text-white hidden lg:block'>
+          <span className='text-sm '>{printBreadCrumbs()}</span>
         </div>
       </div>
       <div className='text-white'>

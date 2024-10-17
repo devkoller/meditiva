@@ -1,6 +1,6 @@
 import { useState } from 'react'
-// import { Store } from 'react-notifications-component'
 import { useAuthStore } from './useAuthStore'
+import { notifications } from '@mantine/notifications'
 
 import fetchApi from '../api/fetchApi'
 
@@ -38,6 +38,12 @@ const usePost = () => {
         errors = new Error('Error fetching data')
         errors.message = res.statusText || 'Internal Server Error'
 
+        // notifications.show({
+        //   title: 'Ha ocurrido un error inesperado',
+        //   message: 'Error al realizar la petición',
+        //   color: 'white',
+        //   icon: '❌'
+        // })
         // Store.addNotification({
         //   title: 'Ha ocurrido un error inesperado',
         //   message: data.message,
@@ -53,7 +59,6 @@ const usePost = () => {
         // })
 
         if (data.hasOwnProperty('auth') && !data.auth) {
-          console.log('🚀 > file: usePost.js:36 > usePost > data:', data)
           startLogout()
         }
 
@@ -65,7 +70,6 @@ const usePost = () => {
         setError(null)
       }
     } catch (error) {
-      console.log('🚀 > file: usePost.js:68 > usePost > error:', error)
       if (!signal.aborted) {
         setResponse(null)
         setError(error)

@@ -2,11 +2,17 @@ import { useState, useEffect } from 'react'
 
 import { completeRoutes } from '@/utils/routes'
 import { NavLink } from 'react-router-dom'
+import { useAuthStore } from '@/hooks'
 
 export const SideMenu = () => {
+  const { permisos } = useAuthStore()
+
   const printMenu = type => {
     return completeRoutes.map((route, index) => {
       if (route.type != type) return
+      if (route.grant && !permisos.Statement[0].Action.includes(route.grant)) {
+        return
+      }
       return (
         <li
           key={index}
@@ -25,7 +31,7 @@ export const SideMenu = () => {
   }
 
   return (
-    <aside className='px-3 bg-white h-full pt-5 shadow-2xl'>
+    <aside className='px-3 bg-white min-h-screen pt-5 hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] lg:block'>
       <h3 className='text-md text-gray-300 border-b mb-3 border-slate-300'>
         Productivo
       </h3>

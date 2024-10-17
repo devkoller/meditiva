@@ -10,6 +10,7 @@ import { Inventario } from './Inventario'
 import { Perfil } from './Perfil'
 import { Proveedores } from './Proveedores'
 import { Usuarios } from './Usuarios'
+import { Produccion } from './Produccion'
 
 // Importing all the components from formularios
 import { CrearAlmacen } from './formularios/CrearAlmacen'
@@ -18,6 +19,10 @@ import { CrearCliente } from './formularios/CrearCliente'
 import { CrearEmpresa } from './formularios/CrearEmpresa'
 import { CrearProveedor } from './formularios/CrearProveedor'
 import { CrearUsuario } from './formularios/CrearUsuario'
+import { CapturaCBarra } from './formularios/CapturaCBarra'
+import { CapturaInventarios } from './formularios/CapturaInventarios'
+import { CapturaLotes } from './formularios/CapturaLotes'
+import { CapturaMovimientos } from './formularios/CapturaMovimientos'
 
 export {
   Landing,
@@ -37,5 +42,10 @@ export {
   CrearCliente,
   CrearEmpresa,
   CrearProveedor,
-  CrearUsuario
+  CrearUsuario,
+  Produccion,
+  CapturaCBarra,
+  CapturaInventarios,
+  CapturaLotes,
+  CapturaMovimientos
 }

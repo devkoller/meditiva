@@ -1,0 +1,21 @@
+.react-multi-carousel-item {
+  display: flex;
+  align-items: center;
+}
+
+.animate-banner {
+  animation: banner 50s ease-in-out infinite alternate-reverse both;
+}
+
+.react-select__menu {
+  z-index: 9999 !important;
+}
+
+@keyframes banner {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}

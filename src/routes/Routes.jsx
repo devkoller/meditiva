@@ -37,13 +37,35 @@ export const RoutesApp = () => {
             />
           )
         } else {
-          return (
-            <Route
-              key={index}
-              path={route.route}
-              element={<route.component />}
-            />
-          )
+          if (
+            route.grant &&
+            permisos.Statement[0].Action.includes(route.grant)
+          ) {
+            return (
+              <Route
+                key={index}
+                path={route.route}
+                element={<route.component />}
+              />
+            )
+          }
+          if (!route.grant) {
+            return (
+              <Route
+                key={index}
+                path={route.route}
+                element={<route.component />}
+              />
+            )
+          } else {
+            return (
+              <Route
+                key={index}
+                path={route.route}
+                element={<Navigate to='/main' />}
+              />
+            )
+          }
         }
       } else {
         return (

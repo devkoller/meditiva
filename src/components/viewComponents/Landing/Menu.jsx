@@ -1,9 +1,11 @@
 import React from 'react'
-import { LuMenu } from 'react-icons/lu'
 import icono from '@/assets/imgs/icono.svg'
 import { Link } from 'react-router-dom'
+import { FaUser } from 'react-icons/fa'
+import { useAuthStore } from '@/hooks'
 
 export const Menu = () => {
+  const { isAuthenticated } = useAuthStore()
   return (
     <>
       <header className='bg-meditiva py-5 w-screen'>
@@ -15,9 +17,15 @@ export const Menu = () => {
             </Link>
           </div>
           <div className=''>
-            <Link className='text-white' to='/login'>
-              Iniciar sesión
-            </Link>
+            {isAuthenticated === 'Authenticated' ? (
+              <Link to='/main'>
+                <FaUser className='text-xl' />
+              </Link>
+            ) : (
+              <Link to='/login'>
+                <FaUser className='text-xl' />
+              </Link>
+            )}
           </div>
         </nav>
       </header>

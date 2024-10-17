@@ -112,7 +112,7 @@ export const useAuthStore = () => {
       dispatch(
         onLogin({
           ...session,
-          permisos: newGrants.data.permisos
+          permisos: newGrants.data
         })
       )
     }

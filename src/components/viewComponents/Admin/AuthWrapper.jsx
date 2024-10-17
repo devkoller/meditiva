@@ -3,11 +3,11 @@ import { Header } from './header/Header'
 import { SideMenu } from './sideMenu/SideMenu'
 export const AuthWrapper = ({ children }) => {
   return (
-    <div className='w-full h-screen overflow-hidden'>
+    <div className='w-full h-full relative overflow-y-scroll'>
       <Header />
-      <div className='flex h-full'>
+      <div className='flex max-w-full  min-h-screen'>
         <SideMenu />
-        <div className='p-3 bg-slate-50 w-full'>{children}</div>
+        <div className='p-3 bg-slate-50 w-full '>{children}</div>
       </div>
     </div>
   )

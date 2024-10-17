@@ -15,7 +15,12 @@ import {
   CrearCliente,
   CrearEmpresa,
   CrearProveedor,
-  CrearUsuario
+  CrearUsuario,
+  Produccion,
+  CapturaCBarra,
+  CapturaInventarios,
+  CapturaLotes,
+  CapturaMovimientos
 } from '@/views'
 
 import { IoPieChartSharp, IoMedical } from 'react-icons/io5'
@@ -23,6 +28,7 @@ import { FaWarehouse, FaUsers } from 'react-icons/fa'
 import { BsHospitalFill } from 'react-icons/bs'
 import { MdFactory, MdInventory } from 'react-icons/md'
 import { GiPelvisBone } from 'react-icons/gi'
+import { AiFillProduct } from 'react-icons/ai'
 
 export const completeRoutes = [
   {
@@ -45,12 +51,57 @@ export const completeRoutes = [
   },
   {
     route: '/main',
-    title: 'Dashboard',
+    title: 'Inicio',
     component: Dashboard,
     menu: true,
     icon: IoPieChartSharp,
     auth: 'Authenticated',
     type: 'Productivo'
+  },
+  {
+    route: '/produccion',
+    title: 'Producción',
+    component: Produccion,
+    menu: true,
+    icon: AiFillProduct,
+    auth: 'Authenticated',
+    type: 'Productivo'
+  },
+  {
+    route: '/produccion/captura-codigos-barra',
+    title: 'Artículos',
+    component: CapturaCBarra,
+    menu: false,
+    icon: IoMedical,
+    auth: 'Authenticated',
+    type: 'none'
+  },
+  {
+    route: '/produccion/captura-inventario',
+    title: 'Artículos',
+    component: CapturaCBarra,
+    menu: false,
+    icon: IoMedical,
+    auth: 'Authenticated',
+    type: 'none'
+  },
+  {
+    route: '/produccion/captura-lotes',
+    title: 'Artículos',
+    component: CapturaLotes,
+    menu: false,
+    icon: IoMedical,
+    auth: 'Authenticated',
+    type: 'none'
+  },
+  {
+    route: '/produccion/movimientos',
+    title: 'Artículos',
+    component: CapturaMovimientos,
+    menu: false,
+    icon: IoMedical,
+    auth: 'Authenticated',
+    type: 'none'
   },
   {
     route: '/articulos',
@@ -167,7 +218,8 @@ export const completeRoutes = [
     menu: true,
     icon: MdFactory,
     auth: 'Authenticated',
-    type: 'Catálogos'
+    type: 'Catálogos',
+    grant: 'empr.viewMenu'
   },
   {
     route: '/empresas/crear-empresa',
@@ -187,15 +239,7 @@ export const completeRoutes = [
     auth: 'Authenticated',
     type: 'none'
   },
-  {
-    route: '/inventario',
-    title: 'Inventario',
-    component: Inventario,
-    menu: true,
-    icon: MdInventory,
-    auth: 'Authenticated',
-    type: 'Productivo'
-  },
+
   {
     route: '/mi-perfil',
     title: 'Perfil',
