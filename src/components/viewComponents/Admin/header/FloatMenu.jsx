@@ -2,8 +2,10 @@ import React from 'react'
 import { FaRegUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components'
+import { useAuthStore } from '@/hooks'
 
 export const FloatMenu = ({ refs }) => {
+  const { startLogout } = useAuthStore()
   return (
     <div
       ref={refs}
@@ -20,7 +22,7 @@ export const FloatMenu = ({ refs }) => {
           </Link>
         </li>
         <li className='p-2'>
-          <Button>Cerrar sesión</Button>
+          <Button onClick={startLogout}>Cerrar sesión</Button>
         </li>
       </ul>
     </div>

@@ -6,7 +6,7 @@ export const Forms = ({
   children,
   handleSubmit,
   onSubmit,
-  onError,
+  onError = () => {},
   formClass
 }) => {
   const recursion = child => {
@@ -60,7 +60,11 @@ export const Forms = ({
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={formClass} noValidate>
+    <form
+      onSubmit={handleSubmit(onSubmit, onError)}
+      className={formClass}
+      noValidate
+    >
       {Array.isArray(children)
         ? children.map((child, index) => {
             if (!child) return null

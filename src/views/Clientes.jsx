@@ -1,41 +1,21 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { AuthWrapper, Toolbar, MantineDataTable, Button } from '@/components'
 import { Link } from 'react-router-dom'
 import { MdEdit } from 'react-icons/md'
 import { FaEye } from 'react-icons/fa'
-
-//Dataset of clientes to be displayed in the table
-const data = [
-  {
-    id: 1,
-    nombre: 'Cliente 1',
-    rfc: 'RFC 1',
-    correo: 'Correo 1',
-    telefono: 'Telefono 1'
-  },
-  {
-    id: 2,
-    nombre: 'Cliente 2',
-    rfc: 'RFC 2',
-    correo: 'Correo 2',
-    telefono: 'Telefono 2'
-  },
-  {
-    id: 3,
-    nombre: 'Cliente 3',
-    rfc: 'RFC 3',
-    correo: 'Correo 3',
-    telefono: 'Telefono 3'
-  }
-]
+import { useFetch } from '@/hooks'
 
 export const Clientes = () => {
+  const [clientes, setClientes] = useState([])
+
+  const { response: clientesData } = useFetch({
+    url: '/api/catalogue/client'
+  })
   const columns = [
-    { accessor: 'id', header: 'ID', hidden: true },
-    { accessor: 'nombre', header: 'Nombre', filter: 'text' },
-    { accessor: 'rfc', header: 'RFC', filter: 'text' },
-    { accessor: 'correo', header: 'Correo', filter: 'text' },
-    { accessor: 'telefono', header: 'Teléfono', filter: 'text' },
+    { accessor: 'id', title: 'ID', hidden: true },
+    { accessor: 'nombre', title: 'Cliente', filter: 'text' },
+    { accessor: 'rfc', title: 'RFC', filter: 'text' },
+    { accessor: 'telefono', title: 'Teléfono', filter: 'text' },
     {
       accessor: 'actions',
       title: 'Acciones',
@@ -54,6 +34,12 @@ export const Clientes = () => {
       )
     }
   ]
+
+  useEffect(() => {
+    if (clientesData) {
+      setClientes(clientesData.data)
+    }
+  }, [clientesData])
   return (
     <AuthWrapper>
       <Toolbar>
@@ -63,7 +49,7 @@ export const Clientes = () => {
           </Button>
         </div>
       </Toolbar>
-      <MantineDataTable columns={columns} data={data} KeyTable='clientes' />
+      <MantineDataTable columns={columns} data={clientes} KeyTable='clientes' />
     </AuthWrapper>
   )
 }

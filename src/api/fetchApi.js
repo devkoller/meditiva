@@ -26,6 +26,13 @@ class FetchApi {
     )
   }
 
+  async put ({ url, body, headers, hasFiles, qs, token }) {
+    return await fetch(
+      this.getUrlWithParams(this.baseUrl + url, qs),
+      this.requestPutOptions({ headers, body, hasFiles, token })
+    )
+  }
+
   async delete ({ url, body, headers, hasFiles, qs, token }) {
     return await fetch(
       this.getUrlWithParams(this.baseUrl + url, qs),
@@ -69,6 +76,14 @@ class FetchApi {
   requestPatchOptions ({ headers = {}, body = {}, hasFiles, token }) {
     return {
       method: 'PATCH',
+      headers: this.getHeaders({ headers, token, hasFiles }),
+      body: hasFiles ? body : JSON.stringify(body)
+    }
+  }
+
+  requestPutOptions ({ headers = {}, body = {}, hasFiles, token }) {
+    return {
+      method: 'PUT',
       headers: this.getHeaders({ headers, token, hasFiles }),
       body: hasFiles ? body : JSON.stringify(body)
     }

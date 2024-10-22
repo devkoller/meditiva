@@ -31,11 +31,11 @@ const data = [
 
 export const Empresas = () => {
   const columns = [
-    { accessor: 'id', header: 'ID', hidden: true },
-    { accessor: 'nombre', header: 'Nombre', filter: 'text' },
-    { accessor: 'rfc', header: 'RFC', filter: 'text' },
-    { accessor: 'correo', header: 'Correo', filter: 'text' },
-    { accessor: 'telefono', header: 'Teléfono', filter: 'text' },
+    { accessor: 'id', title: 'ID', hidden: true },
+    { accessor: 'nombre', title: 'Nombre', filter: 'text' },
+    { accessor: 'rfc', title: 'RFC', filter: 'text' },
+    { accessor: 'correo', title: 'Correo', filter: 'text' },
+    { accessor: 'telefono', title: 'Teléfono', filter: 'text' },
     {
       accessor: 'actions',
       title: 'Acciones',
