@@ -17,9 +17,6 @@ export const Inventario = () => {
 
 	const { response: almacenes } = useFetch({
 		url: "/api/catalogue/warehouse",
-		qs: {
-			tipo: 1,
-		},
 	})
 	const { response: subalmacenes } = useFetch({
 		url: "/api/catalogue/warehouse",
