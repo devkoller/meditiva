@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react"
-
+import React from "react"
 import { completeRoutes } from "@/utils/routes"
 import { NavLink } from "react-router-dom"
 import { useAuthStore } from "@/hooks"
 
-export const SideMenu = () => {
+import { LeftPanel } from "@/components"
+
+export const MobileMenu = ({ closePanel }) => {
 	const { permisos } = useAuthStore()
 
 	const printMenu = (type) => {
@@ -29,9 +30,8 @@ export const SideMenu = () => {
 			)
 		})
 	}
-
 	return (
-		<aside className="px-3 bg-white min-h-screen pt-5 hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] xl:block">
+		<LeftPanel title="menu" closePanel={closePanel}>
 			<h3 className="text-md text-gray-300 border-b mb-3 border-slate-300">
 				Productivo
 			</h3>
@@ -44,6 +44,6 @@ export const SideMenu = () => {
 				Administración
 			</h3>
 			<ul>{printMenu("Administración")}</ul>
-		</aside>
+		</LeftPanel>
 	)
 }

@@ -12,10 +12,10 @@ export const Clientes = () => {
     url: '/api/catalogue/client'
   })
   const columns = [
-    { accessor: 'id', header: 'ID', hidden: true },
-    { accessor: 'nombre', header: 'Cliente', filter: 'text' },
-    { accessor: 'rfc', header: 'RFC', filter: 'text' },
-    { accessor: 'telefono', header: 'Teléfono', filter: 'text' },
+    { accessor: 'id', title: 'ID', hidden: true },
+    { accessor: 'nombre', title: 'Cliente', filter: 'text' },
+    { accessor: 'rfc', title: 'RFC', filter: 'text' },
+    { accessor: 'telefono', title: 'Teléfono', filter: 'text' },
     {
       accessor: 'actions',
       title: 'Acciones',
