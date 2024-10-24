@@ -31,7 +31,7 @@ export const Articulos = () => {
 		{ accessor: "id", title: "ID", hidden: true },
 		{ accessor: "nombre", title: "Articulo", filter: "text" },
 		{ accessor: "descrip", title: "Description", filter: "text" },
-		{ accessor: "tipo", title: "Tipo", filter: "select" },
+		{ accessor: "tipoText", title: "Tipo", filter: "select" },
 		{
 			accessor: "actions",
 			title: "Acciones",
@@ -59,7 +59,13 @@ export const Articulos = () => {
 
 	useEffect(() => {
 		if (articulosData) {
-			setArticulos(articulosData.data)
+			const arti = articulosData.data.map((articulo) => {
+				return {
+					...articulo,
+					tipoText: articulo.tipo === 1 ? "Producto" : "Servicio",
+				}
+			})
+			setArticulos(arti)
 		}
 	}, [articulosData])
 
@@ -83,7 +89,7 @@ export const Articulos = () => {
 		<AuthWrapper>
 			<Toolbar>
 				{/* <div className="flex gap-3"> */}
-				<Button color="cyan" link to="/articulos/crear-articulo">
+				<Button color="indigo" link to="/articulos/crear-articulo">
 					Agregar articulo
 				</Button>
 				<Button color="green">Exportar a excel</Button>

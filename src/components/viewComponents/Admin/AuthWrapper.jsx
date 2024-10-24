@@ -16,7 +16,7 @@ export const AuthWrapper = ({ children }) => {
 				<Header openPanel={handleShowMobileMenu} />
 				<div className="flex max-w-screen  min-h-screen">
 					<SideMenu />
-					<div className="p-3 bg-slate-50 w-full ">{children}</div>
+					<div className="p-3 bg-slate-50 w-10/12">{children}</div>
 				</div>
 			</div>
 			{showMobileMenu && <MobileMenu closePanel={handleShowMobileMenu} />}
