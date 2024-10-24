@@ -31,7 +31,7 @@ export const SideMenu = () => {
 	}
 
 	return (
-		<aside className="px-3 bg-white min-h-screen pt-5 hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] xl:block">
+		<aside className="px-3 bg-white min-h-screen pt-5 hidden w-2/12 xl:block">
 			<h3 className="text-md text-gray-300 border-b mb-3 border-slate-300">
 				Productivo
 			</h3>
